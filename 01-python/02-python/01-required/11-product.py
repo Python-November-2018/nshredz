@@ -32,6 +32,7 @@ class Product:
         reasons = ['defective', 'like_new', 'opened']
         if reason not in reasons:
             print("Please specify valid reason.\n")
+            return -1 # could be anything, setting arbitrary error code, in this case -1 will be invalid argument to function
         if (reason == 'defective'):
             self.status = reason
             self.price = 0
