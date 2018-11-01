@@ -1,1 +1,41 @@
-Examples of terminal outputs should go here.
+pip install Django==1.11.9
+ 
+ Installs Django python module, version 1.11.9
+ 
+ pip list
+ 
+ lists installed modules in current active env
+ 
+ deactivate
+ 
+ deactivates virutalenv
+ 
+ pip3 list
+ 
+ shows python modules for system default environment. Django is not in the list
+ 
+ pip install Django==1.11.9
+ 
+ installs Django and pytz in main system environment
+ 
+ pip freeze
+ 
+ outputs installed python modules to in a format to be copied and utilized into requirements.txt to later be reconstructed in a frozen environment.
+ freezing the environment packages it to be replicated on another workstation or to distribute an application so a virtualenv is exactly the same
+ and will gaurantee consistency for the application.
+ 
+ pip freeze > requirements.txt
+ 
+ above drops the file that containing the output of 'pip freeze'
+ 
+ pip uninstall Django
+ 
+ prompts to uninstall Django (I hit yes)
+
+ pip show Django
+ 
+ returns blank. If it were installed it would should information about the package (version, summary, license, home-page, author, etc)
+ 
+ pip search flask
+ 
+ searches pip repo and returns a list of all packages with 'flask' in the name and a one-line summary of each
