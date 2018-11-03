@@ -1,16 +1,16 @@
 import random
 
 # randInt() returns a random integer between 0 to 100
-x = 0
-y = 1
-def randInt():
-    return (random.random()*101)
+# x = 0
+# y = 0
+# def randInt():
+#     return (random.random()*101)
 
-while (x != 100): # this is purely a test, see how many passes it takes to get to 100, the max possible int 
-        x = int(randInt())
-        print(x)
-        y += 1
-print(f"Total: {y}")
+# while (x != 100): # this is purely a test, see how many passes it takes to get to 100, the max possible int 
+#         x = int(randInt())
+#         print(x)
+#         y += 1
+# print(f"Total: {y}")
 # randInt(max=50) returns a random integer between 0 to 50
 #def randInt(max=50):
 #    return (random.random()*max)
