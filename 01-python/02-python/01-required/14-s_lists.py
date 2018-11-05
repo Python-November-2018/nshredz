@@ -25,8 +25,7 @@ class SList:
             runner = runner.next
         if (runner.next == None):
             return self
-        if (runner.next.value == value):
-            runner.next = runner.next.next
+        runner.next = runner.next.next
         return self 
 
     def printAllValues(self, msg=""):
