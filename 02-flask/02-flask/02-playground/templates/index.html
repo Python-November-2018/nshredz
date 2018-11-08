@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Playground</title>
+    <style>
+        .wrapper {
+            margin: 0px auto;
+            width: 800px;
+            text-align: center;
+        }
+        .lightblue {
+            background-color: LightBlue;
+            border: 1px solid black;
+            height: 150px;
+            width: 150px;
+            display: inline-block;
+            margin: 20px;
+        }
+        .green {
+            background-color: green;
+            border: 1px solid black;
+            height: 150px;
+            width: 150px;
+            display: inline-block;
+            margin: 20px;
+        }
+        </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Welcome</h1>
+        {% if color2 == "lightblue" %}
+            {% for x in range(0, num2): %}
+            <div class="lightblue"></div> <!-- I tried dynamically passing color2 to class= via variable but didnt work-->
+            {% endfor %}
+        {% endif %}
+        
+        {% if color2 == "green" %}
+            {% for x in range(0, num2): %}
+            <div class="green"></div> <!-- I tried dynamically passing color2 to class= via variable but didnt work-->
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>
