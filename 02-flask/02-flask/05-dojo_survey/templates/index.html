@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Dojo Survey</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="form">
+            <h1>Dojo Survey</h1>
+            <form action='/result' method='post'>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="name" class="form-control" id="name" name="name" placeholder="Karl Marx">
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <select class="form-control" id="location" name="location">
+                        <option>Chicago</option>
+                        <option>Seattle</option>
+                        <option>Tulsa</option>
+                        <option>San Diego</option>
+                        <option>New York</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                        <label for="language">Favorite Language</label>
+                        <select class="form-control" id="language" name="language">
+                            <option>Cobol</option>
+                            <option>FORTRAN</option>
+                            <option>Smalltalk</option>
+                            <option>LISP</option>
+                            <option>Clipper</option>
+                        </select>
+                    </div>
+                <div class="form-group">
+                    <label for="comments">Comments (optional)</label>
+                    <textarea class="form-control" id="comments" name="comments" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>

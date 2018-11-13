@@ -1,0 +1,15 @@
+* {
+    margin: 0px auto;
+    /* outline: 1px solid pink; */
+}
+
+.wrapper {
+    width: 25%
+}
+.form {
+    margin-top: 50px;
+}
+
+h1 {
+    margin-bottom: 50px;
+}
