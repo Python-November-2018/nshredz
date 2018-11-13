@@ -19,8 +19,8 @@
             display: inline-block;
             margin: 20px;
         }
-        .green {
-            background-color: green;
+        .box {
+            background-color: {{ color }};
             border: 1px solid black;
             height: 150px;
             width: 150px;
@@ -32,17 +32,9 @@
 <body>
     <div class="wrapper">
         <h1>Welcome</h1>
-        {% if color2 == "lightblue" %}
-            {% for x in range(0, num2): %}
-            <div class="lightblue"></div> <!-- I tried dynamically passing color2 to class= via variable but didnt work-->
-            {% endfor %}
-        {% endif %}
-        
-        {% if color2 == "green" %}
-            {% for x in range(0, num2): %}
-            <div class="green"></div> <!-- I tried dynamically passing color2 to class= via variable but didnt work-->
-            {% endfor %}
-        {% endif %}
+        {% for box in range(num) %}
+            <div class="box"></div>
+        {% endfor %}
     </div>
 </body>
 </html>

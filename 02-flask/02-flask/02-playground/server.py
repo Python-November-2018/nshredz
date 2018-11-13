@@ -6,19 +6,19 @@ print(__name__)
 print('2')
 
 @app.route('/play')
-def play(num=3):
-    return render_template('index.html', num2=3, color2='lightblue')
+def play():
+    return render_template('index.html', num=3, color='lightblue')
 
 @app.route('/play/<num>')
-def play_num(num, color2='lightblue'):
-    return render_template('index.html', num2=int(num), color2='lightblue')
+def play_num(num):
+    return render_template('index.html', num=int(num), color='lightblue')
 
 @app.route('/play/<num>/<color>')
 
-def play_num_color(num, color):
+def play_num_color(num = 3, color = 'lightblue'):
     print(num)
     print(color)
     # passing num, color without argument returns error
-    return render_template('index.html', num2=int(num), color2=color)
+    return render_template('index.html', num=int(num), color=color)
 if __name__=="__main__":
     app.run(debug=True)    
