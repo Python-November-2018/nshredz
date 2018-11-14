@@ -1,0 +1,37 @@
+ * {
+    /* outline: 1px solid pink; */
+    margin: 0px auto;
+}
+.wrapper {
+    width: 75%;
+}
+.content {
+    text-align: center;
+}
+    .content h1 {
+        margin: 100px 0px 25px 0px;
+    }
+.result_box {
+    /* background-color: red; */
+    width: 250px;
+    height: 150px;
+    margin-bottom: 25px;
+}
+    .result_box h1 {
+        margin: 65px 0px;
+        padding-top: 50px;
+}
+.red {
+    border: 2px solid black;
+    background-color: red;
+    width: 250px;
+    height: 150px;
+    margin-bottom: 25px;
+}
+.green {
+    border: 2px solid black;
+    background-color: green;
+    width: 250px;
+    height: 150px;
+    margin-bottom: 25px;
+}
