@@ -1,0 +1,17 @@
+/* * {
+    outline: 1px solid pink;
+} */
+.wrapper {
+    margin: 0px auto;
+    width: 50%;
+}
+.counter {
+    margin-top: 200px;
+    text-align: center;
+}
+    .counter form {
+        display: inline-block;
+    }
+h2 {
+    margin: 40px 0px;
+}
