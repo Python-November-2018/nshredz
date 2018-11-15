@@ -19,19 +19,16 @@ def process_money():
         gold = random.randrange(10, 21)
         session['total_gold'] += gold
         result = '<p class="won">Earned ' + str(gold) + ' gold from the ' + request.form['property'] + '!    (' + datetime.now().strftime('%c') + ') </p>'
-        # session['activities'].append(result)
     
     elif request.form['property'] == 'cave':
         gold = random.randrange(5, 11)
         session['total_gold'] += gold
         result = '<p class="won">Earned ' + str(gold) + ' gold from the ' + request.form['property'] + '!    (' + datetime.now().strftime('%c') + ') </p>'
-      #  session['activities'].append(result)
     
     elif request.form['property'] == 'house':
         gold = random.randrange(2, 6)
         session['total_gold'] += gold
         result = '<p class="won">Earned ' + str(gold) + ' gold from the ' + request.form['property'] + '!    (' + datetime.now().strftime('%c') + ') </p>'
-        # session['activities'].append(result)
     
     elif request.form['property'] == 'casino':
         gold = random.randrange(-50, 51)
