@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, session
 import random
-import datetime
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = 'somekey'
@@ -18,33 +18,29 @@ def process_money():
     if request.form['property'] == 'farm':
         gold = random.randrange(10, 21)
         session['total_gold'] += gold
-        now = datetime.datetime.now()
-        result = '<p class="won">Earned ' + str(gold) + ' gold from the ' + request.form['property'] + '!    (' + now.strftime('%c') + ') </p>'
-        session['activities'].append(result)
+        result = '<p class="won">Earned ' + str(gold) + ' gold from the ' + request.form['property'] + '!    (' + datetime.now().strftime('%c') + ') </p>'
+        # session['activities'].append(result)
     
-    if request.form['property'] == 'cave':
+    elif request.form['property'] == 'cave':
         gold = random.randrange(5, 11)
         session['total_gold'] += gold
-        now = datetime.datetime.now()
-        result = '<p class="won">Earned ' + str(gold) + ' gold from the ' + request.form['property'] + '!    (' + now.strftime('%c') + ') </p>'
-        session['activities'].append(result)
+        result = '<p class="won">Earned ' + str(gold) + ' gold from the ' + request.form['property'] + '!    (' + datetime.now().strftime('%c') + ') </p>'
+      #  session['activities'].append(result)
     
-    if request.form['property'] == 'house':
+    elif request.form['property'] == 'house':
         gold = random.randrange(2, 6)
         session['total_gold'] += gold
-        now = datetime.datetime.now()
-        result = '<p class="won">Earned ' + str(gold) + ' gold from the ' + request.form['property'] + '!    (' + now.strftime('%c') + ') </p>'
-        session['activities'].append(result)
+        result = '<p class="won">Earned ' + str(gold) + ' gold from the ' + request.form['property'] + '!    (' + datetime.now().strftime('%c') + ') </p>'
+        # session['activities'].append(result)
     
-    if request.form['property'] == 'casino':
+    elif request.form['property'] == 'casino':
         gold = random.randrange(-50, 51)
         session['total_gold'] += gold
-        now = datetime.datetime.now()
         if gold > -1:
-            result = '<p class="won">Earned ' + str(gold) + ' gold from the ' + request.form['property'] + '!    (' + now.strftime('%c') + ') </p>'
+            result = '<p class="won">Earned ' + str(gold) + ' gold from the ' + request.form['property'] + '!    (' + datetime.now().strftime('%c') + ') </p>'
         else:
-            result = '<p class="lost">Lost ' + str(abs(gold)) + ' gold from the ' + request.form['property'] + '!    (' + now.strftime('%c') + ') </p>'
-        session['activities'].append(result)
+            result = '<p class="lost">Lost ' + str(abs(gold)) + ' gold from the ' + request.form['property'] + '!    (' + datetime.now().strftime('%c') + ') </p>'
+    session['activities'].append(result)
     return redirect("/")
 
 @app.route('/restart', methods=['POST'])
