@@ -50,9 +50,9 @@
         </div>
         <p class="act">Activities:</p>
         <div class="activities">
-            {% if session['activities'] != '' %}
+            {% if session['activities'] %}
                 {% for activity in session['activities'] | reverse: %}
-                    {{ activity | safe }}
+                    <p class="{{ activity['css_class'] }}">{{ activity['content'] }}</p>
                 {% endfor %}
             {%  endif %}
         </div>
