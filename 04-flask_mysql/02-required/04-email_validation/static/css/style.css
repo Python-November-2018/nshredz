@@ -1,0 +1,17 @@
+* {
+    margin: 0px auto;
+    /* outline: 1px solid pink; */
+}
+
+.wrapper {
+    width: 950px;
+}
+    .wrapper .button-primary {
+        margin-bottom: 25px;
+    }
+form {
+    margin-bottom: 0px;
+}
+.error {
+    color: red;
+}

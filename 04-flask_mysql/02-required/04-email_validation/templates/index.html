@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" integrity="sha256-ECB9bbROLGm8wOoEbHcHRxlHgzGqYpDtNTgDTyDz0wg=" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Email validation with DB</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Email validation with DB</h2>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="error">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action='/add_email' method='post'>
+            <div class="row">
+                <div class="six columns">
+                    <label for="email">Email address: </label>
+                    <input class="u-full-width" name="email" id="email">
+                </div>
+            </div>
+            <input class="button-primary" type="submit" value="Submit">
+        </form>
+        <form action='/delete_email' method="post">
+            <table class="u-full-width">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Created At</th>
+                        <th>Remove Record?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for email in emails %}
+                    <tr>
+                        <td>{{email['email']}}</td>
+                        <td>{{email['created_at']}}</td>
+                        <td>
+                            <label class="delete_email">
+                                <input type="checkbox" name="do_delete" value="{{ email['id'] }}">
+                            </label>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <input class="button-primary" type="submit" value="Delete">
+        </form>
+    </div>
+</body>
+</html>
