@@ -1,0 +1,25 @@
+* {
+    margin: 0px auto;
+    /* outline: 1px solid pink; */
+}
+.wrapper {
+    width: 1050px;
+}
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.register {
+    width: 350px;
+    margin-left: 125px;
+    display: inline-block;
+}
+.login {
+    width: 350px;
+    margin-left: 125px;
+    display: inline-block;
+    vertical-align: top;
+}
+.error {
+    color: red;
+}
