@@ -1,0 +1,22 @@
+* {
+    margin: 0px auto;
+    /* outline: 1px solid pink; */
+}
+.wrapper {
+    width: 1300px;
+}
+.date_header {
+    margin-left: 600px;
+}
+    .date_header .glyphicon {
+        margin-right: 25px;
+    }
+    .date_header .btn {
+        margin-left: 25px;
+    }
+.table_data {
+    width: 600px;
+}
+    .table_data h3 {
+        text-align: center;
+    }
