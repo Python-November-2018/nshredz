@@ -11,8 +11,8 @@ mysql = connectToMySQL('emaildb')
 
 @app.route('/')
 def index():
-    if 'clear' in session:
-        session.clear()
+    # if 'clear' in session:
+    #     session.clear()
     
     mysql = connectToMySQL("emaildb")
     
@@ -25,23 +25,23 @@ def add_email():
     session['email'] = request.form['email']
     print(session['email'])
     print('this is here')
-    if len(request.form['email']) < 1:
-        flash('Email can not be empty')
-    elif not EMAIL_REGEX.match(request.form['email']):
-        flash("Invalid Email Address!")
     
-    if '_flashes' in session.keys():
-        print('flashes found')
-        # session['clear'] = '1'
+    if len(request.form['email']) < 1:
+        flash("Email can not be empty", "error")
         return redirect("/")
-    else:
-        mysql = connectToMySQL("emaildb")
-        query = "INSERT INTO emails (email, created_at, updated_at) VALUES (%(email)s, NOW(), NOW());"
-        data = {
-                'email': request.form['email'],
-                }
-        new_email_id = mysql.query_db(query, data)
-        return redirect("/complete")
+    if not EMAIL_REGEX.match(request.form['email']):
+        flash("Invalid Email Address!", "error")
+        return redirect("/")
+
+    flash("The email address you entered " + session['email'] + " is a valid email address!", "success")
+
+    mysql = connectToMySQL("emaildb")
+    query = "INSERT INTO emails (email, created_at, updated_at) VALUES (%(email)s, NOW(), NOW());"
+    data = {
+            'email': request.form['email'],
+            }
+    new_email_id = mysql.query_db(query, data)
+    return redirect("/")
 
 @app.route('/delete_email', methods=["GET","POST"])
 def delete_email():
@@ -53,12 +53,12 @@ def delete_email():
     delete_them = mysql.query_db(query)
     return redirect('/')
 
-@app.route('/complete', methods=["GET","POST"])
-def complete():
-    print('complete')
+# @app.route('/complete', methods=["GET","POST"])
+# def complete():
+#     print('complete')
 
-    session['clear'] = '1'
-    return render_template("complete.html")
+#     session['clear'] = '1'
+#     return render_template("complete.html")
 
-if __name__=="__main__":
+if __name__== "__main__":
     app.run(debug=True)

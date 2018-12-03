@@ -13,5 +13,16 @@ form {
     margin-bottom: 0px;
 }
 .error {
-    color: red;
+    color: white;
+    background-color: darkred;
+    border: 1px solid black;
+    text-align: center;
+    width: 200px;
+}
+.success {
+    color: white;
+    background-color: darkgreen;
+    border: 1px solid black;
+    text-align: center;
+    width: 800px;
 }
