@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" integrity="sha256-ECB9bbROLGm8wOoEbHcHRxlHgzGqYpDtNTgDTyDz0wg=" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_home.css') }}">
+    <title>Home</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h5>Coding Dojo Wall (Simplified)</h5>
+            <p class="welcome">Welcome, {{ session['first_name'] }}!</p>
+            <a href="/logout">Logout</a>
+        </div>
+        <div class="wall">
+            <p class="headline">{{ msg_count }} Message(s) for you {{ session['first_name'] }}</p>
+            {% for message in messages | reverse %}
+                <p class="message_head">{{ message['first_name']}} said on {{ message['created_at'] }}</p>
+                <table class="table u-full-width">    
+                    <tbody>
+                        <tr>
+                            <td class="msg">{{ message['content'] }}</td>
+                            <td width="10"><a href="/remove/{{ message['id'] }}"><i class="far fa-trash-alt"></i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            {% endfor %}
+        </div>
+        <div class="send">
+            <p class="headline">Send a message</p>
+            <p>You have sent a total of {{ get_sent }} messages so far</p>
+            {% for friend in friends %}
+            <form action='/send_message' method='post'>
+                <div class="row">
+                  <div class="twelve columns">
+                    <label for="message">{{ friend['first_name'] }} {{friend['last_name'] }}</label>
+                        <textarea class="u-full-width" input type="text" name="message" id="message"></textarea>
+                    </div>
+                </div>
+                <input type="hidden" name="send_to" value="{{ friend['id'] }}">
+                <input class="button-primary" type="submit" value="Send">
+            </form>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
