@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" integrity="sha256-ECB9bbROLGm8wOoEbHcHRxlHgzGqYpDtNTgDTyDz0wg=" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Users Edit</title>
+</head>
+<body>
+    <h2>Edit User {{ user[0]['id'] }}</h2>
+    <div class="edit">
+        <form action="/users/edit_complete", method="post">
+            <div class="row">
+                <div class="four columns">
+                    <label for="first_name">First Name: </label>
+                    <input class="u-full-width" input type="text" name="first_name" id="first_name">
+                </div>
+            </div>
+            {% with errors = get_flashed_messages(category_filter=["first_name"]) %}
+                {% if errors %}
+                    {% for msg in errors %}
+                        <p class="error">{{ msg }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <div class="row">
+                <div class="four columns">
+                    <label for="last_name">Last Name: </label>
+                    <input class="u-full-width" input type="text" name="last_name" id="last_name">
+                </div>
+            </div>
+            {% with errors = get_flashed_messages(category_filter=["last_name"]) %}
+                {% if errors %}
+                    {% for msg in errors %}
+                        <p class="error">{{ msg }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <div class="row">
+                <div class="four columns">
+                    <label for="last_name">Email: </label>
+                    <input class="u-full-width" input type="text" name="email" id="email">
+                </div>
+            </div>
+            {% with errors = get_flashed_messages(category_filter=["email"]) %}
+                {% if errors %}
+                    {% for msg in errors %}
+                        <p class="error">{{ msg }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <input type="hidden" name="id" value="{{ user[0]['id'] }}">
+            <input class="button-primary" type="submit" value="Update">
+        </form>
+        <a href="/users">Go Back</a>
+    </div>
+</body>
