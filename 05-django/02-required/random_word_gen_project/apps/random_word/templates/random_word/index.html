@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" integrity="sha256-ECB9bbROLGm8wOoEbHcHRxlHgzGqYpDtNTgDTyDz0wg=" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="{% static 'random_word/css/style.css' %}">
+    <title>Random Word Generator</title>
+</head>
+<body>
+    <div class="wrapper">
+        <p>Random Word (attempt #{{request.session.attempt}})<p>
+        <div class="random">
+            <h5>{{request.session.random_word}}</h5>           
+        </div>
+        <form action="/random_word" method="get">
+            {% csrf_token %}
+            <button type="submit">Generate</button>
+        </form>
+        <form action="/random_word/reset" method="get">
+            {% csrf_token %}
+            <button type="submit">Reset</button>
+        </form> 
+    </div>
+</body>
+</html>
