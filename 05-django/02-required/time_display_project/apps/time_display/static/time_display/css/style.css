@@ -1,0 +1,26 @@
+* {
+    margin: 0px auto;
+    /* outline: 1px solid pink; */
+}
+.wrapper {
+    width: 900px;
+}
+.header {
+    width: 250px;
+    display: block;
+}
+    .header h5 {
+        margin-top: 50px;
+        padding: 8px;
+        border: 2px solid black;
+    }
+.time {
+    width: 418px;
+    height: 250px;
+    margin-left: 235px;
+    display: inline-block;
+    text-align: center;
+}
+    .time h1 {
+        border: 2px solid black;
+    }
