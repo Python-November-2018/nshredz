@@ -1,0 +1,39 @@
+* {
+    margin: 0px auto;
+    /* outline: 1px solid pink; */
+}
+.wrapper {
+    width: 1000px;
+}
+.header {
+    height: 50px;
+}
+.add {
+    display: inline-block;
+    width: 498px;
+    border-right: 2px solid black;
+    min-height: 800px;
+}
+    .input1 {
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+    .rdo {
+        margin-left: 20px;
+    }
+    .chk {
+        margin-left: 2px;
+    }
+    .button-primary{
+        margin-top: 5px;
+    }
+.output {
+    display: inline-block;
+    vertical-align: top;
+    width: 465px;
+    padding-left: 5px;
+    /* min-height: 460px; */
+}
+    .output .button-primary {
+        margin-left: 330px;
+    }

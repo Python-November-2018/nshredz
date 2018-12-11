@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" integrity="sha256-ECB9bbROLGm8wOoEbHcHRxlHgzGqYpDtNTgDTyDz0wg=" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'session_words/css/style.css' %}">
+    <title>Session Words</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+        </div>
+        <div class="add">
+            <h5>Add a new word</h5>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <form action="/add" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <input type="text" name="word" size="40" class="input1">
+                </div>
+                <label class="color">Choose color</label>
+                <input type="radio" name="color" value="red" class="rdo" checked> Red<br>
+                <input type="radio" name="color" value="green" class="rdo"> Green<br>
+                <input type="radio" name="color" value="blue" class="rdo"> Blue<br>
+                <input type="checkbox" name="big_font" value="1">
+                <span class="chk">show in BIG fonts!</span><br><br>
+                <input class="button-primary" type="submit" value="Add To Session">
+            </form>
+        </div>
+        <div class="output">
+            <form action="/clear">
+                <!-- <input type="hidden" name="clear_session" value="1"> -->
+                <input class="button-primary" type="submit" value="Clear Session">
+            </form>
+            {% for item in request.session.data reversed%}
+            <p style='color: {{item.color}}; font-size: {{item.font}}'>{{item.word}} - added on {{item.time}}</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
