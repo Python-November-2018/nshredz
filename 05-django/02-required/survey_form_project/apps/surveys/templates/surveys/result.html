@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" integrity="sha256-ECB9bbROLGm8wOoEbHcHRxlHgzGqYpDtNTgDTyDz0wg=" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'surveys/css/style.css' %}">
+    <title>Survey Form</title>
+</head>
+<body>
+    <div class="header_box">
+        <p>Thanks for submitting this form! You have submitted this form {{request.session.total}} times now.</p>
+    </div>
+    <div class="submitted">
+        <h5>Submitted Information</h5>
+        <div class="titles">
+            <p>Name:</p>
+            <p>Dojo Location:</p>
+            <p>Favorite Language:</p>
+            <p>Comment:</p>
+        </div>
+        <div class="data">
+            <p>{{request.session.name}}</p>
+            <p>{{request.session.location}}</p>
+            <p>{{request.session.language}}</p>
+            <p>{{request.session.comment}}</p>
+        </div>
+    </div>
+</body>
+</html>

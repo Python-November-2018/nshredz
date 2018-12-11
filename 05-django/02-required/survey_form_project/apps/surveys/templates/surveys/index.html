@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" integrity="sha256-ECB9bbROLGm8wOoEbHcHRxlHgzGqYpDtNTgDTyDz0wg=" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'surveys/css/style.css' %}">
+    <title>Survey Form</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form_box">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <form action="/process/" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="field">
+                        <label for="name">Name:</label>
+                        <input type="text" name="name" value="{{request.session.name}}">
+                    </div>
+                    <div class="field">
+                        <label for="location">Dojo Location:</label>
+                        <select name="location">
+                            <option value="chicago">Chicago</option>
+                            <option value="dallas">Dallas</option>
+                            <option value="new_york">New York</option>
+                            <option value="seattle">Seattle</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="language">Favorite Language</label>
+                        <select name="language">
+                            <option value="clipper">Clipper</option>
+                            <option value="fortran">FORTRAN</option>
+                            <option value="python">Python</option>
+                            <option value="smalltalk">Smalltalk</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="comment">Comment (optional):</label>
+                        <textarea rows="3" cols="50" name="comment">{{request.session.comment}}</textarea>
+                    </div>
+                </div>
+                <input class="button-primary" type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
