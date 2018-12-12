@@ -10,7 +10,7 @@ def index(request):
 
     return render(request, "gold/index.html")
 
-def process_money(request):
+def process_money(request, location):
 
     location_map = {
         "farm": random.randrange(10, 21),
@@ -19,16 +19,19 @@ def process_money(request):
         "casino": random.randrange(-50, 51)
     }
 
-    gold = location_map[request.POST['property']]
+    #gold = location_map[request.POST['property']]
+    gold = location_map[location]
     request.session['total_gold'] += gold
 
     activity = {}
     if gold >= 0:
         activity['css_class'] = "won"
-        activity['content'] = "Won {} gold from the {}! ({})".format(str(abs(gold)), request.POST['property'], datetime.now().strftime('%c'))
+        #activity['content'] = "Won {} gold from the {}! ({})".format(str(abs(gold)), request.POST['property'], datetime.now().strftime('%c'))
+        activity['content'] = "Won {} gold from the {}! ({})".format(str(abs(gold)), location, datetime.now().strftime('%c'))
     else:
         activity['css_class'] = "lost"
-        activity['content'] = "Lost {} gold from the {}! ({})".format(str(abs(gold)), request.POST['property'], datetime.now().strftime('%c'))
+        #activity['content'] = "Lost {} gold from the {}! ({})".format(str(abs(gold)), request.POST['property'], datetime.now().strftime('%c'))
+        activity['content'] = "Lost {} gold from the {}! ({})".format(str(abs(gold)), location, datetime.now().strftime('%c'))
 
     request.session['activities'].append(activity)
 

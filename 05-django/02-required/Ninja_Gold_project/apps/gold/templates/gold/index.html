@@ -20,36 +20,36 @@
         <div class="box">
             <h4>Farm</h4>
             <p>(earn 10 - 20 gold)</p>
-            <form method="post" action="/process_money/">
+            <form method="post" action="/process_money/farm">
                 {% csrf_token %}
-                <input name='property' value='farm' type='hidden'>
+                <!-- <input name='property' value='farm' type='hidden'> -->
                 <button type="submit" class="btn btn-primary">Find Gold</button>
             </form>
         </div>
         <div class="box">
             <h4>Cave</h4>
             <p>(earn 5 - 10 gold)</p>
-            <form method="post" action="/process_money/">
+            <form method="post" action="/process_money/cave">
                 {% csrf_token %}
-                <input name='property' value='cave' type='hidden'>
+                <!-- <input name='property' value='cave' type='hidden'> -->
                 <button type="submit" class="btn btn-primary">Find Gold</button>
             </form>
         </div>
         <div class="box">
             <h4>House</h4>
             <p>(earn 2 - 5 gold)</p>
-            <form method="post" action="/process_money/">
+            <form method="post" action="/process_money/house">
                 {% csrf_token %}
-                <input name='property' value='house' type='hidden'>
+                <!-- <input name='property' value='house' type='hidden'> -->
                 <button type="submit" class="btn btn-primary">Find Gold</button>
             </form>
         </div>
         <div class="box">
             <h4>Casino</h4>
             <p>(earn/take 0 - 50 gold)</p>
-            <form method="post" action="/process_money/">
+            <form method="post" action="/process_money/casino">
                 {% csrf_token %}
-                <input name='property' value='casino' type='hidden'>
+                <!-- <input name='property' value='casino' type='hidden'> -->
                 <button type="submit" class="btn btn-primary">Find Gold</button>
             </form>
         </div>
